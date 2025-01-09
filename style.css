@@ -5,52 +5,159 @@ body {
     color: #333;
     text-align: center;
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    animation: fadeIn 2s ease-in-out;
 }
 
 header {
     background-color: #ffb3d9;
-    padding: 20px;
+    padding: 30px;
+    border-bottom: 5px solid #ff6347;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-out;
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     color: #ff6347;
+    animation: bounceIn 1.5s ease-in-out;
 }
 
 header h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: #ff1493;
+    animation: fadeInText 2s ease-in-out;
 }
 
 .message {
-    margin: 30px 0;
+    margin: 40px auto;
+    max-width: 800px;
     padding: 20px;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    line-height: 1.6;
     color: #333;
+    animation: slideIn 1s ease-out;
+}
+
+.message p {
+    margin-bottom: 20px;
 }
 
 .images img {
-    width: 150px;
-    margin: 10px;
+    width: 200px;
+    margin: 20px;
+    animation: floatUp 2s ease-in-out infinite alternate;
 }
 
 footer {
     background-color: #ffb3d9;
     padding: 15px;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    text-align: center;
+    animation: slideIn 1.5s ease-out;
 }
 
-/* Add animations to make it special */
-header h1, header h2 {
-    animation: fadeIn 3s ease-in-out;
+/* Bounce-in animation for the header */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30px);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
-@keyframes fadeIn {
+/* Fade-in animation for text */
+@keyframes fadeInText {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-in animation for sections */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Floating animation for images */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Animation for footer text */
+@keyframes slideInFooter {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Custom animations for specific elements */
+.animate-header {
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+.animate-subheader {
+    animation: fadeInText 2s ease-in-out;
+}
+
+.animate-text {
+    animation: fadeInText 2.5s ease-in-out;
+}
+
+.animate-image {
+    animation: floatUp 2s ease-in-out infinite alternate;
+}
+
+.animate-footer {
+    animation: slideInFooter 3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1.2em;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    header h2 {
+        font-size: 1.5em;
+    }
+    .message p {
+        font-size: 1.2em;
+    }
+    .images img {
+        width: 150px;
     }
 }
